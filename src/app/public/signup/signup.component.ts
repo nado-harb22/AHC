@@ -20,17 +20,31 @@ export class SignupComponent {
   onSubmit() {
     this.authService.signUp(this.model.username, this.model.password).then(res => {
       if (res) {
-        var uid = res?.user.uid;
-        this.allService.addUser({ email: this.model.username, phone: this.model.phone, userId: uid, isAdmin: false, country: this.model.country });
-        // this.allService.showDialog({ message: 'Registration Success' }).subscribe({});
-        this.sendEmail({ email: this.model.username, phone: this.model.phone, userId: uid, isAdmin: false, country: this.model.country })
-        this.router.navigate(['/login'])
-      }
+        const uid = res.user.uid;
+        const userData = {
+          email: this.model.username,
+          phone: this.model.phone,
+          userId: uid,
+          isAdmin: false,
+          country: this.model.country
+        };
 
-    })
+        this.allService.addUser(userData);
+        this.sendEmail(userData);
+        this.router.navigate(['/login']);
+      }
+    }).catch(err => {
+      if (err.code === 'auth/email-already-in-use') {
+        alert('This email is already registered. Please log in instead.');
+        this.router.navigate(['/login']);
+      } else {
+        alert('Registration failed: ' + err.message);
+      }
+    });
+
     console.log('Form Submitted!', this.model);
-    // Add your login logic here
   }
+
   sendEmail(data: any) {
     const payload = {
       to_email: 'akkarHuntingClub@gmail.com',  // destination

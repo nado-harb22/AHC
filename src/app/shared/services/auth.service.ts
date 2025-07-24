@@ -24,10 +24,14 @@ export class AuthService {
     return credentials;
   }
 
-  async signUp(email: string, password: string) {
-    const credentials = await createUserWithEmailAndPassword(auth, email, password);
-    this.user = credentials.user;
-    return credentials;
+  async signUp(email: string, password: string): Promise<any> {
+    try {
+      const credentials = await createUserWithEmailAndPassword(auth, email, password);
+      this.user = credentials.user;
+      return credentials;
+    } catch (error) {
+      throw error; // re-throw so caller can handle it
+    }
   }
 
   logout() {
