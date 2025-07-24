@@ -1,0 +1,18 @@
+<div class="news-container">
+    <div class="container-custom">
+        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+            <h1 class="m-0">Hunting News Updates</h1>
+            <a [routerLink]="'/add-news'" class="btn btn-success">Add New</a>
+        </div>
+
+        <div class="news-item" *ngFor="let news of formattedNews">
+            <img src="{{news.file}}" alt="Premier Chris Minns - NSW Feral Animal Bounty Proposal" class="news-image" />
+            <div class="news-content">
+                <h2 class="news-title">🐗 {{news.title}}</h2>
+                <div class="news-date">{{news.date}}</div>
+                <p class="news-text">{{news.desc}}</p>
+            </div>
+        </div>
+
+    </div>
+</div>

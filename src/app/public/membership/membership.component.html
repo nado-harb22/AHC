@@ -1,0 +1,100 @@
+    <!-- Membership Section -->
+    <section id="membership" class="py-16 bg-green-900 text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Become a Member</h2>
+            <p class="text-center text-green-200 mb-12 max-w-2xl mx-auto">Join our community of responsible hunters and enjoy exclusive benefits.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Basic Tier -->
+                <div class="bg-gray-800 rounded-lg p-8 membership-tier">
+                    <h3 class="text-2xl font-bold mb-2">Basic</h3>
+                    <p class="text-green-300 mb-6">For occasional hunters</p>
+                    <div class="text-4xl font-bold mb-6">$9.99<span class="text-lg text-gray-400">/year</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            <span>Access to club news</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            <span>Monthly newsletter</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            <span>Basic hunting regulations guide</span>
+                        </li>
+                        <li class="flex items-center text-gray-500">
+                            <i class="fas fa-times text-gray-500 mr-2"></i>
+                            <span>No event discounts</span>
+                        </li>
+                        <li class="flex items-center text-gray-500">
+                            <i class="fas fa-times text-gray-500 mr-2"></i>
+                            <span>No private land access</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-gray-700 hover:bg-gray-600 text-white py-3 rounded-lg font-semibold transition" (click)="getStartd()">Get Started</button>
+                </div>
+                
+                <!-- Premium Tier -->
+                <div class="bg-gray-800 rounded-lg p-8 membership-tier premium relative">
+                    <div class="absolute top-0 right-0 bg-yellow-600 text-xs font-bold px-3 py-1 rounded-bl-lg">POPULAR</div>
+                    <h3 class="text-2xl font-bold mb-2">Premium</h3>
+                    <p class="text-green-300 mb-6">For dedicated hunters</p>
+                    <div class="text-4xl font-bold mb-6">$19.99<span class="text-lg text-gray-400">/year</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            <span>All Basic benefits</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            <span>20% discount on club events</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            <span>Access to private hunting lands</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            <span>Advanced hunting workshops</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            <span>Member-only gear discounts</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-yellow-600 hover:bg-yellow-700 text-white py-3 rounded-lg font-semibold transition" (click)="getStartd()">Get Started</button>
+                </div>
+                
+                <!-- Family Tier -->
+                <div class="bg-gray-800 rounded-lg p-8 membership-tier">
+                    <h3 class="text-2xl font-bold mb-2">Family</h3>
+                    <p class="text-green-300 mb-6">For hunting families</p>
+                    <div class="text-4xl font-bold mb-6">$99.99<span class="text-lg text-gray-400">/year</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            <span>All Premium benefits</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            <span>Covers 2 adults + 2 children</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            <span>Family-oriented hunting events</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            <span>Youth hunting programs</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            <span>Priority booking for events</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-gray-700 hover:bg-gray-600 text-white py-3 rounded-lg font-semibold transition" (click)="getStartd()">Get Started</button>
+                </div>
+            </div>
+        </div>
+    </section>

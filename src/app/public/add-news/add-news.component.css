@@ -1,0 +1,82 @@
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+ body {
+     font-family: Arial, sans-serif;
+     min-height: 100vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     background: linear-gradient(to bottom right, #d0f0e0, #a0c8a0);
+ }
+
+ .form-container {
+     background-color: white;
+     padding: 30px;
+     margin: 5rem auto;
+     border-radius: 12px;
+     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+     width: 400px;
+     border-left: 10px solid rgba(22, 101, 52, 1);
+     backdrop-filter: blur(2px);
+ }
+
+ .form-container h2 {
+     color: rgba(22, 101, 52, 1);
+     margin-bottom: 10px;
+ }
+@media screen and (max-width :500px) {
+    
+    .form-container{
+        width: auto  !important;
+    }
+}
+ .form-container p {
+     font-size: 14px;
+     color: #555;
+     margin-bottom: 20px;
+ }
+
+ .form-group {
+     margin-bottom: 15px;
+ }
+
+ .form-group label {
+     display: block;
+     font-weight: bold;
+     margin-bottom: 6px;
+     color: rgba(22, 101, 52, 1);
+ }
+
+ .form-group input[type="text"],
+ .form-group input[type="date"],
+ .form-group input[type="file"] {
+     width: 100%;
+     padding: 10px;
+     border: 1px solid rgba(22, 101, 52, 0.4);
+     border-radius: 6px;
+     font-size: 14px;
+ }
+
+ .form-group input:required {
+     border-left: 4px solid rgba(22, 101, 52, 1);
+ }
+
+ .submit-btn {
+     background-color: rgba(22, 101, 52, 1);
+     color: white;
+     border: none;
+     padding: 12px 20px;
+     font-size: 16px;
+     border-radius: 6px;
+     cursor: pointer;
+     width: 100%;
+     transition: background-color 0.3s ease;
+ }
+
+ .submit-btn:hover {
+     background-color: rgba(22, 101, 52, 0.9);
+ }
