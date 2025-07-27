@@ -2,13 +2,14 @@ import { Component, OnInit, ɵɵstylePropInterpolate7 } from '@angular/core';
 import { AllService } from '../../../shared/services/all.service';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { FormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
   styleUrl: './contact-us.component.css',
   standalone: true,
-  imports:[FormsModule]
+  imports:[FormsModule,TranslateModule]
 })
 export class ContactUsComponent implements OnInit {
   emailData = {

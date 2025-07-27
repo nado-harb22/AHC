@@ -1,22 +1,32 @@
 <!-- Gallery Section -->
 <section id="gallery" class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-green-900">Club Gallery</h2>
-        <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Explore moments from our hunts, events, and
-            conservation activities.</p>
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-green-900">
+      {{ 'gallery.title' | translate }}
+    </h2>
+    <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+      {{ 'gallery.subtitle' | translate }}
+    </p>
 
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" *ngIf="imageUrls.length > 0">
-            <div class="gallery-item overflow-hidden rounded-lg shadow-md"  *ngFor="let url of imageUrls; let i =index">
-                <img [src]="url"  alt="Gallery image 1"
-                    class="w-full h-48 object-cover hover:opacity-90 transition"  *ngIf="i<8">
-            </div>
-          
+    <div *ngIf="imageUrls.length > 0" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <ng-container *ngFor="let url of imageUrls; let i = index">
+        <div *ngIf="i < 8" class="overflow-hidden rounded-lg shadow-md">
+          <img
+            [src]="url"
+            alt="{{ 'gallery.imageAlt' | translate }} {{ i + 1 }}"
+            class="w-full h-48 object-cover hover:opacity-90 transition duration-300 ease-in-out"
+          />
         </div>
-
-        <div class="text-center mt-12">
-            <button
-                class="bg-green-800 hover:bg-green-900 text-white px-8 py-3 rounded-lg text-lg font-semibold transition" (click)="allItems()">View
-                Full Gallery</button>
-        </div>
+      </ng-container>
     </div>
+
+    <div class="text-center mt-12" *ngIf="imageUrls.length > 8">
+      <button
+        (click)="allItems()"
+        class="bg-green-800 hover:bg-green-900 text-white px-8 py-3 rounded-lg text-lg font-semibold transition duration-300 ease-in-out"
+      >
+        {{ 'gallery.viewFull' | translate }}
+      </button>
+    </div>
+  </div>
 </section>

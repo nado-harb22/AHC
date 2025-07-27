@@ -1,56 +1,40 @@
 <footer class="bg-green-900 text-white py-12">
-    <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div>
-                <div class="flex items-center mb-4">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/akkar-hunting-club.firebasestorage.app/o/logo.jpg?alt=media&token=b20ea0fb-81ad-48ca-85da-f3777d865e95"
-                        style="width: 50px; border-radius: 50%;" alt="">
-                    <span class="font-bold text-xl mx-2">Akkar Hunting Club</span>
-                </div>
-                <p class="text-green-200">Promoting sustainable hunting practices since 2022.</p>
-            </div>
-
-            <div>
-                <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-                <ul class="space-y-2">
-                    <li><a href="#" class="text-green-200 hover:text-white transition">Home</a></li>
-                    <li><a href="#about" class="text-green-200 hover:text-white transition">About Us</a></li>
-                    <li><a href="#news" class="text-green-200 hover:text-white transition">News</a></li>
-                    <li><a href="#gallery" class="text-green-200 hover:text-white transition">Gallery</a></li>
-                    <li><a href="#membership" class="text-green-200 hover:text-white transition">Membership</a></li>
-                </ul>
-            </div>
-            <h3 class="text-lg font-semibold mb-4">Founded in 2022, Akkar Hunting Club is dedicated to promoting
-                sustainable hunting practices that respect wildlife and preserve natural habitats. We believe hunting
-                can be a force for conservation when practiced responsibly.</h3>
-            <!-- <div>
-                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-green-200 hover:text-white transition">Hunting Regulations</a></li>
-                        <li><a href="#" class="text-green-200 hover:text-white transition">Safety Guidelines</a></li>
-                        <li><a href="#" class="text-green-200 hover:text-white transition">Wildlife Conservation</a></li>
-                        <li><a href="#" class="text-green-200 hover:text-white transition">FAQ</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Legal</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-green-200 hover:text-white transition">Terms of Service</a></li>
-                        <li><a href="#" class="text-green-200 hover:text-white transition">Privacy Policy</a></li>
-                        <li><a href="#" class="text-green-200 hover:text-white transition">Cookie Policy</a></li>
-                    </ul>
-                </div> -->
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div>
+        <div class="flex items-center mb-4">
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/akkar-hunting-club.firebasestorage.app/o/logo.jpg?alt=media&token=b20ea0fb-81ad-48ca-85da-f3777d865e95"
+            style="width: 50px; border-radius: 50%;"
+            alt=""
+          />
+          <span class="font-bold text-xl mx-2">{{ 'FOOTER.TITLE' | translate }}</span>
         </div>
+        <p class="text-green-200">{{ 'FOOTER.SUBTITLE' | translate }}</p>
+      </div>
 
-        <div class="border-t border-green-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p class="text-green-300 mb-4 md:mb-0">© 2025 Akkar Hunting Club. All rights reserved.</p>
-            <div class="flex space-x-4">
-                <a href="#" class="text-green-300 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="text-green-300 hover:text-white transition"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-green-300 hover:text-white transition"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="text-green-300 hover:text-white transition"><i class="fab fa-youtube"></i></a>
-            </div>
-        </div>
+      <div>
+        <h3 class="text-lg font-semibold mb-4">{{ 'FOOTER.QUICK_LINKS' | translate }}</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="text-green-200 hover:text-white transition">{{ 'FOOTER.LINKS.HOME' | translate }}</a></li>
+          <li><a href="#about" class="text-green-200 hover:text-white transition">{{ 'FOOTER.LINKS.ABOUT' | translate }}</a></li>
+          <li><a href="#news" class="text-green-200 hover:text-white transition">{{ 'FOOTER.LINKS.NEWS' | translate }}</a></li>
+          <li><a href="#gallery" class="text-green-200 hover:text-white transition">{{ 'FOOTER.LINKS.GALLERY' | translate }}</a></li>
+          <li><a href="#membership" class="text-green-200 hover:text-white transition">{{ 'FOOTER.LINKS.MEMBERSHIP' | translate }}</a></li>
+        </ul>
+      </div>
+
+      <h3 class="text-lg font-semibold mb-4">{{ 'FOOTER.DESCRIPTION' | translate }}</h3>
     </div>
+
+    <div class="border-t border-green-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+      <p class="text-green-300 mb-4 md:mb-0">{{ 'FOOTER.COPYRIGHT' | translate }}</p>
+      <div class="flex space-x-4">
+        <a href="#" class="text-green-300 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-green-300 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-green-300 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-green-300 hover:text-white transition"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
 </footer>

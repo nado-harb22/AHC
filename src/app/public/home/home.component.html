@@ -1,17 +1,18 @@
 <!-- Hero Section -->
 <section class="hero flex items-center justify-center text-center text-white animate-fadeIn">
     <div class="container mx-auto px-4">
-        <h1 class="text-4xl md:text-6xl font-bold mb-6">Welcome to Akkar Hunting Club</h1>
-        <h3 class="text-2xl md:text-6xl font-bold mb-6">The House of Sustainable Hunting</h3>
-        <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Preserving traditions, promoting conservation, and
-            fostering a community of responsible hunters.</p>
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">{{ 'HERO.TITLE_MAIN' | translate }}</h1>
+        <h3 class="text-2xl md:text-6xl font-bold mb-6">{{ 'HERO.TITLE_SUB' | translate }}</h3>
+        <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">{{ 'HERO.DESCRIPTION' | translate }}</p>
         <div class="flex flex-col md:flex-row justify-center gap-4">
-            <a (click)="gotoLink( '/signup')" *ngIf="!auth?.isAuthenticated()"
-                class="bg-yellow-600 hover:bg-yellow-700 text-white px-8 py-3 rounded-lg text-lg font-semibold transition">Join
-                Our Club</a>
-            <a (click)="gotoLink( '/about')"
-                class="bg-transparent border-2 border-white hover:bg-white hover:text-green-900 text-white px-8 py-3 rounded-lg text-lg font-semibold transition">Learn
-                More</a>
+            <a (click)="gotoLink('/signup')" *ngIf="!auth?.isAuthenticated()"
+                class="bg-yellow-600 hover:bg-yellow-700 text-white px-8 py-3 rounded-lg text-lg font-semibold transition">
+                {{ 'HERO.BUTTON_JOIN' | translate }}
+            </a>
+            <a (click)="gotoLink('/about')"
+                class="bg-transparent border-2 border-white hover:bg-white hover:text-green-900 text-white px-8 py-3 rounded-lg text-lg font-semibold transition">
+                {{ 'HERO.BUTTON_LEARN_MORE' | translate }}
+            </a>
         </div>
     </div>
 </section>
@@ -19,6 +20,7 @@
 <app-about></app-about>
 <app-news></app-news>
 <app-gallery></app-gallery>
+
 <!-- Testimonials Section -->
 <!-- <section class="py-16 bg-gray-100">
     <div class="container mx-auto px-4">

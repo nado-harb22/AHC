@@ -1,41 +1,66 @@
- <!-- About Section -->
-    <section id="about" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-green-900">About Akkar Hunting Club</h2>
-            
-            <div class="flex flex-col md:flex-row items-center gap-12">
-                <div class="md:w-1/2">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/akkar-hunting-club.firebasestorage.app/o/gallery%2Fimages.jpg?alt=media&token=6ed2a046-6d0c-4563-926e-49c1a2b8c49b" alt="Hunting in nature" class="rounded-lg shadow-xl w-full h-auto">
-                </div>
-                <div class="md:w-1/2">
-                    <h3 class="text-2xl font-semibold mb-4 text-green-800">Our Mission</h3>
-                    <p class="text-gray-700 mb-6">Founded in 2022, Akkar Hunting Club is dedicated to promoting sustainable hunting practices that respect wildlife and preserve natural habitats. We believe hunting can be a force for conservation when practiced responsibly.</p>
-                    
-                    <h3 class="text-2xl font-semibold mb-4 text-green-800">Our Values</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <i class="fas fa-leaf text-green-600 mt-1 mr-3"></i>
-                            <div>
-                                <h4 class="font-semibold text-green-700">Conservation</h4>
-                                <p class="text-gray-700">We actively participate in wildlife conservation programs and habitat restoration projects.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-graduation-cap text-green-600 mt-1 mr-3"></i>
-                            <div>
-                                <h4 class="font-semibold text-green-700">Education</h4>
-                                <p class="text-gray-700">We provide training on ethical hunting practices, firearm safety, and wildlife management.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-users text-green-600 mt-1 mr-3"></i>
-                            <div>
-                                <h4 class="font-semibold text-green-700">Community</h4>
-                                <p class="text-gray-700">We foster a community of hunters who share knowledge, experiences, and respect for nature.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<!-- About Section -->
+<section id="about" class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-green-900">
+      {{ 'ABOUT.TITLE' | translate }}
+    </h2>
+
+    <div class="flex flex-col md:flex-row items-center gap-12">
+      <div class="md:w-1/2">
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/akkar-hunting-club.firebasestorage.app/o/gallery%2Fimages.jpg?alt=media&token=6ed2a046-6d0c-4563-926e-49c1a2b8c49b"
+          alt="{{ 'ABOUT.IMAGE_ALT' | translate }}"
+          class="rounded-lg shadow-xl w-full h-auto"
+        />
+      </div>
+      <div class="md:w-1/2">
+        <h3 class="text-2xl font-semibold mb-4 text-green-800">
+          {{ 'ABOUT.MISSION_TITLE' | translate }}
+        </h3>
+        <p class="text-gray-700 mb-6">
+          {{ 'ABOUT.MISSION_TEXT' | translate }}
+        </p>
+
+        <h3 class="text-2xl font-semibold mb-4 text-green-800">
+          {{ 'ABOUT.VALUES_TITLE' | translate }}
+        </h3>
+
+        <div class="space-y-4">
+          <div class="flex items-start">
+            <i class="fas fa-leaf text-green-600 mt-1 mr-3"></i>
+            <div>
+              <h4 class="font-semibold text-green-700">
+                {{ 'ABOUT.VALUES.CONSERVATION.TITLE' | translate }}
+              </h4>
+              <p class="text-gray-700">
+                {{ 'ABOUT.VALUES.CONSERVATION.TEXT' | translate }}
+              </p>
             </div>
+          </div>
+          <div class="flex items-start">
+            <i class="fas fa-graduation-cap text-green-600 mt-1 mr-3"></i>
+            <div>
+              <h4 class="font-semibold text-green-700">
+                {{ 'ABOUT.VALUES.EDUCATION.TITLE' | translate }}
+              </h4>
+              <p class="text-gray-700">
+                {{ 'ABOUT.VALUES.EDUCATION.TEXT' | translate }}
+              </p>
+            </div>
+          </div>
+          <div class="flex items-start">
+            <i class="fas fa-users text-green-600 mt-1 mr-3"></i>
+            <div>
+              <h4 class="font-semibold text-green-700">
+                {{ 'ABOUT.VALUES.COMMUNITY.TITLE' | translate }}
+              </h4>
+              <p class="text-gray-700">
+                {{ 'ABOUT.VALUES.COMMUNITY.TEXT' | translate }}
+              </p>
+            </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { getStorage, ref, listAll, getDownloadURL } from 'firebase/storage';
 
 @Component({
   selector: 'app-gallery',
-  imports: [CommonModule],
+  imports: [CommonModule,TranslateModule],
   templateUrl: './gallery.component.html',
   styleUrl: './gallery.component.css'
 })

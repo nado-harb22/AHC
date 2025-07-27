@@ -3,10 +3,11 @@ import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angula
 import { AllService } from '../../shared/services/all.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../../shared/services/auth.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-add-news',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,TranslateModule],
   templateUrl: './add-news.component.html',
   styleUrl: './add-news.component.css'
 })

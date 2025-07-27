@@ -5,10 +5,11 @@ import { GalleryComponent } from "./gallery/gallery.component";
 import { Router } from '@angular/router';
 import { AuthService } from '../../shared/services/auth.service';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
-  imports: [AboutComponent, NewsComponent,CommonModule, GalleryComponent],
+  imports: [AboutComponent, NewsComponent,CommonModule,TranslateModule, GalleryComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

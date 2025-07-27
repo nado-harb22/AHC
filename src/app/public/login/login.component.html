@@ -1,13 +1,13 @@
 <div class="login-container">
-    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
-        <div>
-            <label for="username">Username</label>
-            <input type="text" id="username" required [(ngModel)]="model.username" name="username">
-        </div>
-        <div>
-            <label for="password">Password</label>
-            <input type="password" id="password" required [(ngModel)]="model.password" name="password">
-        </div>
-        <button type="submit">Login</button>
-    </form>
+  <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+    <div>
+      <label for="username">{{ 'LOGIN.USERNAME' | translate }}</label>
+      <input type="text" id="username" required [(ngModel)]="model.username" name="username">
+    </div>
+    <div>
+      <label for="password">{{ 'LOGIN.PASSWORD' | translate }}</label>
+      <input type="password" id="password" required [(ngModel)]="model.password" name="password">
+    </div>
+    <button type="submit">{{ 'LOGIN.BUTTON_SUBMIT' | translate }}</button>
+  </form>
 </div>

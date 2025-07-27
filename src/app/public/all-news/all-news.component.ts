@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AllService } from '../../shared/services/all.service';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-all-news',
   standalone: true, // ✅ Needed for standalone component
-  imports: [RouterModule,CommonModule],
+  imports: [RouterModule,CommonModule,TranslateModule],
   templateUrl: './all-news.component.html',
   styleUrl: './all-news.component.css'
 })
