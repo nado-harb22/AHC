@@ -130,7 +130,7 @@
         "PASSWORD": "كلمة المرور",
         "BUTTON_SUBMIT": "تسجيل الدخول"
     },
-    "SIGNUP_AR": {
+    "SIGNUP": {
         "EMAIL": "البريد الإلكتروني",
         "PASSWORD": "كلمة المرور",
         "PHONE": "رقم الهاتف",

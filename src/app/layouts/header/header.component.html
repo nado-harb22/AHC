@@ -5,7 +5,7 @@
         <div class="flex items-center">
           <img src="https://firebasestorage.googleapis.com/v0/b/akkar-hunting-club.firebasestorage.app/o/logo.jpg?alt=media&token=b20ea0fb-81ad-48ca-85da-f3777d865e95"
             style="width: 80px; border-radius: 50%;" alt="">
-          <span class="font-bold text-xl mx-4">{{ 'NAV.TITLE' | translate }}</span>
+          <span class="font-bold text-xl mx-4">{{ 'FOOTER.TITLE' | translate }}</span>
         </div>
       </div>
 
@@ -16,20 +16,17 @@
         <a [routerLink]="'/news'" class="hover:text-yellow-400 transition">{{ 'NAV.NEWS' | translate }}</a>
         <a [routerLink]="'/gallery'" class="hover:text-yellow-400 transition">{{ 'NAV.GALLERY' | translate }}</a>
         <a [routerLink]="'/signup'" class="hover:text-yellow-400 transition"
-          *ngIf="auth?.isAuthenticated()">{{ 'NAV.MEMBERSHIP' | translate }}</a>
+          *ngIf="!auth?.isAuthenticated()">{{ 'NAV.MEMBERSHIP' | translate }}</a>
         <a [routerLink]="'/contact-us'" *ngIf="auth?.isAuthenticated()" class="hover:text-yellow-400 transition">{{ 'NAV.CONTACT' | translate }}</a>
 
         <!-- Language Switch Buttons -->
-        <button (click)="switchLang('en')"
-          class="px-3 py-1 bg-white text-green-900 rounded hover:bg-yellow-400">EN</button>
-        <button (click)="switchLang('ar')"
-          class="px-3 py-1 bg-white text-green-900 rounded hover:bg-yellow-400">AR</button>
-
+        <button (click)="toggleLanguage()"
+          class="px-3 py-1 bg-white text-green-900 rounded hover:bg-yellow-400 btn-danger mt-2">{{currentLang =='en'?'Ar':'En'}}</button>
         <!-- Auth Buttons -->
         <button class="w-full bg-yellow-600 hover:bg-yellow-700 px-4 py-2 rounded-lg mt-2 transition"
-          *ngIf="auth?.isAuthenticated()" (click)="openLoginModal()">{{ 'NAV.LOGIN' | translate }}</button>
+          *ngIf="!auth?.isAuthenticated()" (click)="openLoginModal()">{{ 'NAV.LOGIN' | translate }}</button>
         <button class="w-full bg-yellow-600 hover:bg-yellow-700 px-4 py-2 rounded-lg mt-2 transition"
-          *ngIf="!auth?.isAuthenticated()" (click)="logout()">{{ 'NAV.LOGOUT' | translate }}</button>
+          *ngIf="auth?.isAuthenticated()" (click)="logout()">{{ 'NAV.LOGOUT' | translate }}</button>
       </div>
 
       <!-- Mobile menu button -->
@@ -47,20 +44,19 @@
       <a [routerLink]="'news'" class="block py-2 hover:text-yellow-400 transition">{{ 'NAV.NEWS' | translate }}</a>
       <a [routerLink]="'gallery'" class="block py-2 hover:text-yellow-400 transition">{{ 'NAV.GALLERY' | translate }}</a>
       <a [routerLink]="'membership'" class="block py-2 hover:text-yellow-400 transition"
-        *ngIf="auth?.isAuthenticated()">{{ 'NAV.MEMBERSHIP' | translate }}</a>
+        *ngIf="!auth?.isAuthenticated()">{{ 'NAV.MEMBERSHIP' | translate }}</a>
       <a [routerLink]="'contact-us'" class="block py-2 hover:text-yellow-400 transition"
-        *ngIf="!auth?.isAuthenticated()">{{ 'NAV.CONTACT' | translate }}</a>
+        *ngIf="auth?.isAuthenticated()">{{ 'NAV.CONTACT' | translate }}</a>
       <button class="w-full bg-yellow-600 hover:bg-yellow-700 px-4 py-2 rounded-lg mt-2 transition"
-        *ngIf="auth?.isAuthenticated()" (click)="openLoginModal()">{{ 'NAV.LOGIN' | translate }}</button>
+        *ngIf="!auth?.isAuthenticated()" (click)="openLoginModal()">{{ 'NAV.LOGIN' | translate }}</button>
       <button class="w-full bg-yellow-600 hover:bg-yellow-700 px-4 py-2 rounded-lg mt-2 transition"
-        *ngIf="!auth?.isAuthenticated()" (click)="logout()">{{ 'NAV.LOGOUT' | translate }}</button>
+        *ngIf="auth?.isAuthenticated()" (click)="logout()">{{ 'NAV.LOGOUT' | translate }}</button>
       
       <!-- Mobile Language Switch -->
       <div class="flex justify-center gap-4 mt-4">
-        <button (click)="switchLang('en')"
-          class="px-3 py-1 bg-white text-green-900 rounded hover:bg-yellow-400">EN</button>
-        <button (click)="switchLang('ar')"
-          class="px-3 py-1 bg-white text-green-900 rounded hover:bg-yellow-400">AR</button>
+        <button (click)="toggleLanguage()"
+          class="px-3 py-1 bg-white text-green-900 rounded hover:bg-yellow-400 ">{{currentLang =='en'?'Ar':'En'}}</button>
+        
       </div>
     </div>
   </div>

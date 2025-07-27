@@ -31,6 +31,20 @@ export class AllService {
         //this.std = new StudentModule('', '', '', '', '', '');
       });
   }
+  addNewsAr(data: any) {
+
+
+    this.http
+      .post<any>(firebaseConfig.databaseURL + '/news_ar.json', data)
+      .subscribe((responseData) => {
+        console.log(responseData);
+        // let name = <{ name: string }><unknown>responseData;
+        // this.postSubject.next({ id: name.name, post: p });
+        // this.router.navigate(['/tabs/posts']);
+        //   this.std.id=responseData.toString();
+        //this.std = new StudentModule('', '', '', '', '', '');
+      });
+  }
   /**
        * Opens a dialog with the specified data message using the DialogModuleComponent.
        *
@@ -68,6 +82,15 @@ export class AllService {
   fetchPosts(): Observable<any[]> {
     return this.http
       .get<any[]>(`${firebaseConfig.databaseURL}` + '/news.json')
+      .pipe(
+        catchError((err) => {
+          return throwError(err.message || 'Server Issue');
+        })
+      );
+  }
+  fetchPostsAr(): Observable<any[]> {
+    return this.http
+      .get<any[]>(`${firebaseConfig.databaseURL}` + '/news_ar.json')
       .pipe(
         catchError((err) => {
           return throwError(err.message || 'Server Issue');

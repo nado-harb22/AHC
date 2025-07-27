@@ -4,10 +4,11 @@ import { AuthService } from '../../shared/services/auth.service';
 import { FormsModule } from '@angular/forms';
 import { AllService } from '../../shared/services/all.service';
 import { TranslateModule } from '@ngx-translate/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-signup',
-  imports: [FormsModule, TranslateModule],
+  imports: [FormsModule, TranslateModule,CommonModule],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
 })

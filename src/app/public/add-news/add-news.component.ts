@@ -4,18 +4,19 @@ import { AllService } from '../../shared/services/all.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../../shared/services/auth.service';
 import { TranslateModule } from '@ngx-translate/core';
+import { LanguageService } from '../../shared/services/language.service';
 
 @Component({
   selector: 'app-add-news',
-  imports: [ReactiveFormsModule,TranslateModule],
+  imports: [ReactiveFormsModule, TranslateModule],
   templateUrl: './add-news.component.html',
   styleUrl: './add-news.component.css'
 })
 export class AddNewsComponent {
   myForm: FormGroup;
   fileName: string = '';
-
-  constructor(private fb: FormBuilder,private auth:AuthService,private router : Router, private allServices: AllService) {
+  currentLang: string = 'en';
+  constructor(private fb: FormBuilder, private lngService: LanguageService, private auth: AuthService, private router: Router, private allServices: AllService) {
     this.myForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
@@ -24,10 +25,11 @@ export class AddNewsComponent {
     });
   }
 
-  ngOnInit(): void { 
-    if(!this.auth.isAdmin()){
+  ngOnInit(): void {
+    if (!this.auth.isAdmin()) {
       this.router.navigate(['/home'])
     }
+    this.currentLang = this.lngService.getCurrentLanguage();
   }
 
   onFileSelected(event: any) {
@@ -57,9 +59,14 @@ export class AddNewsComponent {
               file: url, // Just send file name or skip it
               date: this.myForm.get('date')?.value
             };
-
-            this.allServices.addNews(formData);
-            this.router.navigate(['/news']);
+            if (this.currentLang == 'en') {
+              this.allServices.addNews(formData);
+              this.router.navigate(['/news']);
+            }
+            if (this.currentLang == 'ar') {
+              this.allServices.addNewsAr(formData);
+              this.router.navigate(['/news']);
+            }
           }
         });
       }
