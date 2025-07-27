@@ -6,7 +6,7 @@
         <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Preserving traditions, promoting conservation, and
             fostering a community of responsible hunters.</p>
         <div class="flex flex-col md:flex-row justify-center gap-4">
-            <a (click)="gotoLink( '/signup')" *ngIf="auth?.isAuthenticated()"
+            <a (click)="gotoLink( '/signup')" *ngIf="!auth?.isAuthenticated()"
                 class="bg-yellow-600 hover:bg-yellow-700 text-white px-8 py-3 rounded-lg text-lg font-semibold transition">Join
                 Our Club</a>
             <a (click)="gotoLink( '/about')"

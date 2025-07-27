@@ -1,54 +1,67 @@
 <nav class="bg-green-900 text-white shadow-lg">
-    <div class="container mx-auto px-4 py-3">
-        <div class="flex justify-between items-center">
-            <div class="flex items-center space-x-4">
-                <div class="flex items-center">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/akkar-hunting-club.firebasestorage.app/o/logo.jpg?alt=media&token=b20ea0fb-81ad-48ca-85da-f3777d865e95"
-                        style="width: 80px; border-radius: 50%;" alt="">
-                    <span class="font-bold text-xl mx-4">Akkar Hunting Club</span>
-                </div>
-            </div>
-
-            <!-- Desktop Navigation -->
-            <div class="hidden md:flex items-center space-x-8">
-                <a [routerLink]="'/'" class="hover:text-yellow-400 transition">Home</a>
-                <a [routerLink]="'/about'" class="hover:text-yellow-400 transition">About</a>
-                <a [routerLink]="'/news'" class="hover:text-yellow-400 transition">News</a>
-                <a [routerLink]="'/gallery'" class="hover:text-yellow-400 transition">Gallery</a>
-                <a [routerLink]="'/signup'" class="hover:text-yellow-400 transition" *ngIf="!auth?.isAuthenticated()">Membership</a>
-                <a [routerLink]="'/contact-us'" *ngIf="auth?.isAuthenticated()" class="hover:text-yellow-400 transition">Contact</a>
-                <button class="w-full bg-yellow-600 hover:bg-yellow-700 px-4 py-2 rounded-lg mt-2 transition"
-                    *ngIf="!auth?.isAuthenticated()" (click)="openLoginModal()">Member
-                    Login</button>
-                <button class="w-full bg-yellow-600 hover:bg-yellow-700 px-4 py-2 rounded-lg mt-2 transition"
-                    *ngIf="auth?.isAuthenticated()" (click)="logout()">Member
-                    Logout</button>
-            </div>
-
-            <!-- Mobile menu button -->
-            <div class="md:hidden" >
-                <button class="text-white focus:outline-none"  (click)="showMobileMenu = !showMobileMenu">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
-            </div>
+  <div class="container mx-auto px-4 py-3">
+    <div class="flex justify-between items-center">
+      <div class="flex items-center space-x-4">
+        <div class="flex items-center">
+          <img src="https://firebasestorage.googleapis.com/v0/b/akkar-hunting-club.firebasestorage.app/o/logo.jpg?alt=media&token=b20ea0fb-81ad-48ca-85da-f3777d865e95"
+            style="width: 80px; border-radius: 50%;" alt="">
+          <span class="font-bold text-xl mx-4">{{ 'NAV.TITLE' | translate }}</span>
         </div>
+      </div>
 
-        <!-- Mobile Navigation -->
-        <div id="mobileMenu" class="md:hidden  mt-4 pb-4"  [ngClass]="{ 'hidden': !showMobileMenu }">
-            <a [routerLink]="'/'" class="block py-2 hover:text-yellow-400 transition">Home</a>
-            <a [routerLink]="'about'" class="block py-2 hover:text-yellow-400 transition">About</a>
-            <a [routerLink]="'news'" class="block py-2 hover:text-yellow-400 transition">News</a>
-            <a [routerLink]="'gallery'" class="block py-2 hover:text-yellow-400 transition">Gallery</a>
-            <a [routerLink]="'membership'" class="block py-2 hover:text-yellow-400 transition"
-                *ngIf="!auth?.isAuthenticated()">Membership</a>
-            <a [routerLink]="'contact-us'" class="block py-2 hover:text-yellow-400 transition"
-                *ngIf="auth?.isAuthenticated()">Contact</a>
-            <button class="w-full bg-yellow-600 hover:bg-yellow-700 px-4 py-2 rounded-lg mt-2 transition"
-                *ngIf="!auth?.isAuthenticated()" (click)="openLoginModal()">Member
-                Login</button>
-            <button class="w-full bg-yellow-600 hover:bg-yellow-700 px-4 py-2 rounded-lg mt-2 transition"
-                *ngIf="auth?.isAuthenticated()" (click)="logout()">Member
-                Logout</button>
-        </div>
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a [routerLink]="'/'" class="hover:text-yellow-400 transition">{{ 'NAV.HOME' | translate }}</a>
+        <a [routerLink]="'/about'" class="hover:text-yellow-400 transition">{{ 'NAV.ABOUT' | translate }}</a>
+        <a [routerLink]="'/news'" class="hover:text-yellow-400 transition">{{ 'NAV.NEWS' | translate }}</a>
+        <a [routerLink]="'/gallery'" class="hover:text-yellow-400 transition">{{ 'NAV.GALLERY' | translate }}</a>
+        <a [routerLink]="'/signup'" class="hover:text-yellow-400 transition"
+          *ngIf="auth?.isAuthenticated()">{{ 'NAV.MEMBERSHIP' | translate }}</a>
+        <a [routerLink]="'/contact-us'" *ngIf="auth?.isAuthenticated()" class="hover:text-yellow-400 transition">{{ 'NAV.CONTACT' | translate }}</a>
+
+        <!-- Language Switch Buttons -->
+        <button (click)="switchLang('en')"
+          class="px-3 py-1 bg-white text-green-900 rounded hover:bg-yellow-400">EN</button>
+        <button (click)="switchLang('ar')"
+          class="px-3 py-1 bg-white text-green-900 rounded hover:bg-yellow-400">AR</button>
+
+        <!-- Auth Buttons -->
+        <button class="w-full bg-yellow-600 hover:bg-yellow-700 px-4 py-2 rounded-lg mt-2 transition"
+          *ngIf="auth?.isAuthenticated()" (click)="openLoginModal()">{{ 'NAV.LOGIN' | translate }}</button>
+        <button class="w-full bg-yellow-600 hover:bg-yellow-700 px-4 py-2 rounded-lg mt-2 transition"
+          *ngIf="!auth?.isAuthenticated()" (click)="logout()">{{ 'NAV.LOGOUT' | translate }}</button>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button class="text-white focus:outline-none" (click)="showMobileMenu = !showMobileMenu">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
     </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobileMenu" class="md:hidden mt-4 pb-4" [ngClass]="{ 'hidden': !showMobileMenu }">
+      <a [routerLink]="'/'" class="block py-2 hover:text-yellow-400 transition">{{ 'NAV.HOME' | translate }}</a>
+      <a [routerLink]="'about'" class="block py-2 hover:text-yellow-400 transition">{{ 'NAV.ABOUT' | translate }}</a>
+      <a [routerLink]="'news'" class="block py-2 hover:text-yellow-400 transition">{{ 'NAV.NEWS' | translate }}</a>
+      <a [routerLink]="'gallery'" class="block py-2 hover:text-yellow-400 transition">{{ 'NAV.GALLERY' | translate }}</a>
+      <a [routerLink]="'membership'" class="block py-2 hover:text-yellow-400 transition"
+        *ngIf="auth?.isAuthenticated()">{{ 'NAV.MEMBERSHIP' | translate }}</a>
+      <a [routerLink]="'contact-us'" class="block py-2 hover:text-yellow-400 transition"
+        *ngIf="!auth?.isAuthenticated()">{{ 'NAV.CONTACT' | translate }}</a>
+      <button class="w-full bg-yellow-600 hover:bg-yellow-700 px-4 py-2 rounded-lg mt-2 transition"
+        *ngIf="auth?.isAuthenticated()" (click)="openLoginModal()">{{ 'NAV.LOGIN' | translate }}</button>
+      <button class="w-full bg-yellow-600 hover:bg-yellow-700 px-4 py-2 rounded-lg mt-2 transition"
+        *ngIf="!auth?.isAuthenticated()" (click)="logout()">{{ 'NAV.LOGOUT' | translate }}</button>
+      
+      <!-- Mobile Language Switch -->
+      <div class="flex justify-center gap-4 mt-4">
+        <button (click)="switchLang('en')"
+          class="px-3 py-1 bg-white text-green-900 rounded hover:bg-yellow-400">EN</button>
+        <button (click)="switchLang('ar')"
+          class="px-3 py-1 bg-white text-green-900 rounded hover:bg-yellow-400">AR</button>
+      </div>
+    </div>
+  </div>
 </nav>

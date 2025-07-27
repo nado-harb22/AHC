@@ -1,0 +1,12 @@
+{
+  "NAV": {
+    "HOME": "Home",
+    "ABOUT": "About",
+    "NEWS": "News",
+    "GALLERY": "Gallery",
+    "MEMBERSHIP": "Membership",
+    "CONTACT": "Contact",
+    "LOGIN": "Member Login",
+    "LOGOUT": "Member Logout"
+  }
+}

@@ -4,7 +4,7 @@ import { getAnalytics } from 'firebase/analytics';
 import { getDatabase } from 'firebase/database';
 
 // Your Firebase config (from Firebase Console)
- export const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyB6SM1LDTYFfW0Ws1fEHN5h9vAevXe44P8",
   authDomain: "akkar-hunting-club.firebaseapp.com",
   databaseURL: "https://akkar-hunting-club-default-rtdb.firebaseio.com",
