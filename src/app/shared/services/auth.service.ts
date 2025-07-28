@@ -19,9 +19,13 @@ export class AuthService {
   }
 
   async login(email: string, password: string) {
-    const credentials = await signInWithEmailAndPassword(auth, email, password);
-    this.user = credentials.user;
-    return credentials;
+    try {
+      const credentials = await signInWithEmailAndPassword(auth, email, password);
+      this.user = credentials.user;
+      return credentials;
+    } catch (error) {
+      throw error; // re-throw so caller can handle it
+    }
   }
 
   async signUp(email: string, password: string): Promise<any> {
