@@ -1,0 +1,27 @@
+<div class="container my-5">
+
+    <div class="d-flex justify-content-between">
+        <h1 class="page-title">{{ 'gallery.Categories' | translate }}</h1>
+
+        <a [routerLink]="'/add-category'" class="btn btn-success add-btn">
+            {{ 'NEWS.ADD_NEW' | translate }}
+        </a>
+    </div>
+
+
+    <div class="category-list">
+        <div class="card" *ngFor="let item of formattedNews">
+            <a [routerLink]="'categories/'+item.id">
+                <div class="icon-wrapper">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/akkar-hunting-club.firebasestorage.app/o/logo.jpg?alt=media&token=b20ea0fb-81ad-48ca-85da-f3777d865e95"
+                        alt="Category Icon">
+                </div>
+                <p class="cat-title">
+                    {{ currentLang == 'en' ? item.title : item.arabic_title }}
+                </p>
+            </a>
+        </div>
+      
+    </div>
+
+</div>

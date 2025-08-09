@@ -1,0 +1,22 @@
+<div class="form-container">
+    <h2>{{ 'FORM.TITLE' | translate }}</h2>
+    <p>{{ 'FORM.INSTRUCTION' | translate }}</p>
+
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="title">{{ 'FORM.LABELS.TITLE' | translate }} <span>*</span></label>
+            <input type="text" id="title" formControlName="title" required
+                [placeholder]="'FORM.PLACEHOLDERS.TITLE' | translate">
+        </div>
+
+        <div class="form-group">
+            <label for="description">{{ 'FORM.LABELS.arabic_title' | translate }} <span>*</span></label>
+            <input type="text" id="description" formControlName="arabic_title" required
+                [placeholder]="'FORM.PLACEHOLDERS.arabic_title' | translate">
+        </div>
+
+     
+   
+        <button type="submit" class="submit-btn">{{ 'FORM.SUBMIT' | translate }}</button>
+    </form>
+</div>

@@ -11,6 +11,9 @@ import { ContactUsComponent } from './public/home/contact-us/contact-us.componen
 import { GalleryComponent } from './public/home/gallery/gallery.component';
 import { AllGalleryComponent } from './public/all-gallery/all-gallery.component';
 import { MembershipComponent } from './public/membership/membership.component';
+import { CategoriesComponent } from './public/categories/categories.component';
+import { AddCategoryComponent } from './public/add-category/add-category.component';
+import { AddImgToCategoryComponent } from './public/add-img-to-category/add-img-to-category.component';
 
 export const routes: Routes = [
     {
@@ -37,6 +40,7 @@ export const routes: Routes = [
         component: AddNewsComponent,
         canActivate: [authGuard]
     },
+
     {
         path: 'signup',
         component: SignupComponent
@@ -57,19 +61,35 @@ export const routes: Routes = [
     {
         path: 'contact-us',
         component: ContactUsComponent,
-        canActivate:[authGuard]
+        canActivate: [authGuard]
     },
 
     {
         path: 'membership',
         component: SignupComponent
     },
-
+    {
+        path: 'categories',
+        component: CategoriesComponent
+    },
+    {
+        path: 'add-category',
+        component: AddCategoryComponent,
+        canActivate: [authGuard]
+    },
+    {
+        path: 'categories/categories/:id',
+        component: AllGalleryComponent
+    },
     {
         path: 'gallery',
         component: GalleryComponent
     }, {
         path: 'all-gallery',
-        component: AllGalleryComponent
+        component: CategoriesComponent
+    },
+    {
+        path: 'add-img-to-category',
+        component: AddImgToCategoryComponent
     }
 ];

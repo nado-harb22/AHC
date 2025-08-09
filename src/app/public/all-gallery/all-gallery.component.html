@@ -1,16 +1,23 @@
 <!-- Gallery Section -->
 <section id="gallery" class="py-16 bg-white">
   <div class="container mx-auto px-4">
-    <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-green-900">
-      {{ 'GALLERY.TITLE' | translate }}
-    </h2>
+    <div class="d-flex justify-content-between">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-green-900">
+        {{ 'GALLERY.TITLE' | translate }}
+      </h2>
+      <a [routerLink]="'/add-img-to-category'" class="btn btn-success add-btn">
+        {{ 'NEWS.ADD_NEW' | translate }}
+      </a>
+    </div>
+
     <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
       {{ 'GALLERY.DESCRIPTION' | translate }}
     </p>
 
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" *ngIf="imageUrls.length > 0">
       <div class="gallery-item overflow-hidden rounded-lg shadow-md" *ngFor="let url of imageUrls; let i = index">
-        <img [src]="url" [alt]="'GALLERY.IMAGE_ALT' | translate" class="w-full h-48 object-cover hover:opacity-90 transition">
+        <img [src]="url" [alt]="'GALLERY.IMAGE_ALT' | translate"
+          class="w-full h-48 object-cover hover:opacity-90 transition">
       </div>
     </div>
   </div>

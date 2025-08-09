@@ -1,0 +1,27 @@
+<div class="form-container">
+  <h2>{{ 'FORM.TITLE' | translate }}</h2>
+
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    
+    <!-- Dropdown for categories -->
+    <div class="form-group">
+      <label for="category">{{ 'FORM.LABELS.CATEGORY' | translate }} <span>*</span></label>
+      <select id="category" class="form-select" formControlName="categoryId"  required>
+        <option value="">{{ 'FORM.LABELS.CATEGORY' | translate }}</option>
+        <option *ngFor="let item of formattedNews" [value]="item.id">
+          {{ currentLang === 'ar' ? item.arabic_title : item.title }}
+        </option>
+      </select>
+    </div>
+
+    <!-- File input -->
+    <div class="form-group">
+      <label for="file">{{ 'FORM.LABELS.FILE' | translate }} <span>*</span></label>
+      <input type="file" id="file" (change)="onFileSelected($event)" accept="image/*" required>
+    </div>
+
+    <button type="submit" class="submit-btn" [disabled]="!myForm.valid">
+      {{ 'FORM.SUBMIT' | translate }}
+    </button>
+  </form>
+</div>

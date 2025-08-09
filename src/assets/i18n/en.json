@@ -24,13 +24,15 @@
         "COPYRIGHT": "© 2025 Akkar Hunting Club. All rights reserved."
     },
     "FORM": {
+        "arabic_title":"Arabic Title",
         "TITLE": "Submit Your Entry",
         "INSTRUCTION": "Please fill out the form below to submit your information.",
         "LABELS": {
             "TITLE": "Title",
             "DESCRIPTION": "Description",
             "FILE": "Upload File",
-            "DATE": "Select Date"
+            "DATE": "Select Date",
+            "CATEGORY":"Category"
         },
         "PLACEHOLDERS": {
             "TITLE": "Enter a title",
@@ -107,6 +109,7 @@
         }
     },
     "gallery": {
+        "Categories":"Categories",
         "title": "Club Gallery",
         "subtitle": "Explore moments from our hunts, events, and conservation activities.",
         "imageAlt": "Gallery image",

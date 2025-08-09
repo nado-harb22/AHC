@@ -31,6 +31,16 @@ export class AllService {
         //this.std = new StudentModule('', '', '', '', '', '');
       });
   }
+  addCategory(data: any) {
+
+
+    this.http
+      .post<any>(firebaseConfig.databaseURL + '/categories.json', data)
+      .subscribe((responseData) => {
+        console.log(responseData);
+
+      });
+  }
   addNewsAr(data: any) {
 
 
@@ -38,11 +48,7 @@ export class AllService {
       .post<any>(firebaseConfig.databaseURL + '/news_ar.json', data)
       .subscribe((responseData) => {
         console.log(responseData);
-        // let name = <{ name: string }><unknown>responseData;
-        // this.postSubject.next({ id: name.name, post: p });
-        // this.router.navigate(['/tabs/posts']);
-        //   this.std.id=responseData.toString();
-        //this.std = new StudentModule('', '', '', '', '', '');
+
       });
   }
   /**
@@ -51,15 +57,6 @@ export class AllService {
        * @param {any} dataMsg - The data message to be displayed in the dialog.
        * @returns {Observable<any>} An Observable that resolves when the dialog is closed.
        */
-  // showDialog(dataMsg: any): Observable<any> {
-  //   const dialogRef = this.dialog.open(DialogComponent, {
-  //     width: '80rem',
-  //     maxHeight: '90vh',
-  //     data: dataMsg,
-  //     panelClass: 'my-dialog-container-class',
-  //   });
-  //   return dialogRef.afterClosed();
-  // }
   addUser(data: any) {
 
 
@@ -73,6 +70,15 @@ export class AllService {
   fetchUsers(): Observable<any[]> {
     return this.http
       .get<any[]>(`${firebaseConfig.databaseURL}` + '/users.json')
+      .pipe(
+        catchError((err) => {
+          return throwError(err.message || 'Server Issue');
+        })
+      );
+  }
+  fetchCategories(): Observable<any[]> {
+    return this.http
+      .get<any[]>(`${firebaseConfig.databaseURL}` + '/categories.json')
       .pipe(
         catchError((err) => {
           return throwError(err.message || 'Server Issue');
@@ -104,6 +110,14 @@ export class AllService {
     return uploadBytes(fileRef, file)
       .then(() => getDownloadURL(fileRef));
   }
+  uploadFileOfCategory(categoriesId: string, file: File): Promise<string> {
+    const filePath = `categoriesId/${Date.now()}_${file.name}`; // Unique file path
+    const fileRef = ref(this.storage, filePath);
+
+    return uploadBytes(fileRef, file)
+      .then(() => getDownloadURL(fileRef));
+  }
+
   sendEmail(data: any) {
     return emailjs.send(
       'service_yfi30ql',
