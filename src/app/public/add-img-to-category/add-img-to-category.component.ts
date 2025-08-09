@@ -82,9 +82,11 @@ export class AddImgToCategoryComponent {
   onSubmit() {
     if (this.myForm.valid && this.selectedFile) {
       const categoryId = this.myForm.get('categoryId')?.value;
+      console.log(categoryId)
       this.allService.uploadFileOfCategory(categoryId, this.selectedFile).then((url: any) => {
         if (url) {
           console.log('File uploaded successfully! Download URL:', url);
+          this.allService.addCategoryImg({categoryId:categoryId,imageUrl:url});
           this.router.navigate(['/categories']);
         }
       });

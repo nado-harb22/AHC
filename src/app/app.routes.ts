@@ -90,6 +90,7 @@ export const routes: Routes = [
     },
     {
         path: 'add-img-to-category',
-        component: AddImgToCategoryComponent
+        component: AddImgToCategoryComponent,
+        canActivate:[authGuard]
     }
 ];

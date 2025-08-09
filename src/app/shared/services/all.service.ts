@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, finalize, Observable, Subject, throwError } from 'rxjs';
-import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { getStorage, ref, uploadBytes, getDownloadURL, listAll } from 'firebase/storage';
 import emailjs from '@emailjs/browser';
 import { firebaseConfig } from '../../firebase.config';
 import { DialogComponent } from '../components/dialog/dialog.component';
@@ -41,6 +41,44 @@ export class AllService {
 
       });
   }
+  addCategoryImg(data: any) {
+
+
+    this.http
+      .post<any>(firebaseConfig.databaseURL + '/categories_images.json', data)
+      .subscribe((responseData) => {
+        console.log(responseData);
+
+      });
+  }
+  getImagesByCategoryId(categorieId: string):Observable<any> {
+    return this.http
+      .get<any[]>(`${firebaseConfig.databaseURL}` + '/categories_images.json')
+      .pipe(
+        catchError((err) => {
+          return throwError(err.message || 'Server Issue');
+        })
+      );
+  }
+  getImagesFromFolder(folderName: string) {
+    const storage = getStorage();
+    const folderRef = ref(storage, folderName);
+
+    return listAll(folderRef)
+      .then(async (res) => {
+        const urls: string[] = [];
+        for (const itemRef of res.items) {
+          const url = await getDownloadURL(itemRef);
+          urls.push(url);
+        }
+        return urls;
+      })
+      .catch((error) => {
+        console.error("Error fetching images:", error);
+        return [];
+      });
+  }
+
   addNewsAr(data: any) {
 
 
@@ -111,7 +149,7 @@ export class AllService {
       .then(() => getDownloadURL(fileRef));
   }
   uploadFileOfCategory(categoriesId: string, file: File): Promise<string> {
-    const filePath = `categoriesId/${Date.now()}_${file.name}`; // Unique file path
+    const filePath = `${categoriesId}/${Date.now()}_${file.name}`; // Unique file path
     const fileRef = ref(this.storage, filePath);
 
     return uploadBytes(fileRef, file)
