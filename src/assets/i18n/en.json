@@ -48,7 +48,8 @@
     "NEWS": {
         "HEADER": "Hunting News Updates",
         "ADD_NEW": "Add New",
-        "IMAGE_ALT": "News image"
+        "IMAGE_ALT": "News image",
+        "DELETE":"Delete"
     },
     "ABOUT": {
         "TITLE": "About Akkar Hunting Club",
@@ -119,7 +120,8 @@
         "title": "Latest Hunting News",
         "subtitle": "Stay updated with the latest hunting regulations, club events, and conservation news.",
         "event": "Events",
-        "viewAll": "View All News"
+        "viewAll": "View All News",
+        "DELETE":"Delete"
     },
     "HERO": {
         "TITLE_MAIN": "Welcome to Akkar Hunting Club",

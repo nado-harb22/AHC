@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { catchError, finalize, Observable, Subject, throwError } from 'rxjs';
 import { getStorage, ref, uploadBytes, getDownloadURL, listAll } from 'firebase/storage';
 import emailjs from '@emailjs/browser';
+import { getDatabase, ref as dbref, remove } from 'firebase/database';
+// import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { firebaseConfig } from '../../firebase.config';
 import { DialogComponent } from '../components/dialog/dialog.component';
 // import { MatDialog } from '@angular/material/dialog';
@@ -14,6 +16,7 @@ import { DialogComponent } from '../components/dialog/dialog.component';
 export class AllService {
   private storage = getStorage();
   constructor(private http: HttpClient, private router: Router
+    // private db: AngularFireDatabase
     // , public dialog: MatDialog
   ) { }
   postSubject: Subject<any> = new Subject();
@@ -30,6 +33,17 @@ export class AllService {
         //   this.std.id=responseData.toString();
         //this.std = new StudentModule('', '', '', '', '', '');
       });
+  }
+  // deleteItem(path: string, id: string): Promise<void> {
+  //   // return this.db.object(path + id).remove();
+
+  // }
+  deleteItem(path:string,id: string):Promise<void> {
+    const db = getDatabase();
+    const itemRef = dbref(db, path + id);
+
+   return remove(itemRef);
+  
   }
   addCategory(data: any) {
 
@@ -51,7 +65,8 @@ export class AllService {
 
       });
   }
-  getImagesByCategoryId(categorieId: string):Observable<any> {
+
+  getImagesByCategoryId(categorieId: string): Observable<any> {
     return this.http
       .get<any[]>(`${firebaseConfig.databaseURL}` + '/categories_images.json')
       .pipe(

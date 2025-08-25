@@ -12,6 +12,11 @@
         <div class="news-date">{{ news.date }}</div>
         <p class="news-text">{{ news.desc }}</p>
       </div>
+
+      <!-- زر الحذف -->
+      <button class="btn btn-danger delete-btn" *ngIf="isAdmin" (click)="deleteNews(news.id)">
+        🗑 {{ 'news.DELETE' | translate }}
+      </button>
     </div>
   </div>
 </div>
